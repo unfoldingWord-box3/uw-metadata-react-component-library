@@ -1,2 +1,2 @@
-export * from './hello-dcs';
-export * from './repo-search';
+export * from '/metadata';
+export * from './metadata-editor';

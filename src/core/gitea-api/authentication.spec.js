@@ -1,4 +1,3 @@
-/// <reference types="jest" />
 import * as helpers from './authentication';
 jest.unmock('axios');
 jest.unmock('axios-cache-adapter');

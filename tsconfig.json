@@ -12,7 +12,7 @@
     "sourceMap": true,
   },
   "include": [
-    "**/**.ts", "src/components/index.js", "src/components/hello-dcs/index.js"
+    "**/**.ts", "src/components/index.js", "src/components/metadata/index.js"
   ],
   "exclude": [
     "**/node_modules/**"

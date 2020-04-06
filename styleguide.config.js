@@ -13,20 +13,20 @@ const sections = [
   },
   {
     name: 'Hello DCS',
-    components: "src/components/hello-dcs/HelloDcs.js",
+    components: 'src/components/metadata/HelloDcs.js',
   },
   {
-    name: 'Repo Search',
-    content: 'src/components/repo-search/RepoSearch.md',
+    name: 'Metadata Editor',
+    components: 'src/components/metadata-editor/MetadataEditor.js',
   },
 ];
 
 module.exports = {
   title: `${upperFirst(camelCase(name))} v${version}`,
-  // ribbon: {
-  //   url: repository.url,
-  //   text: 'View on GitHub',
-  // },
+  ribbon: {
+    url: repository.url,
+    text: 'View on GitHub',
+  },
   styles,
   theme,
   getComponentPathLine: (componentPath) => {
