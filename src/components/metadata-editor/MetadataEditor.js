@@ -13,11 +13,10 @@ function MetadataEditor() {
   const { state: repo, component: repoComponent } = useContext(RepositoryContext);
   const { state: file, component: fileComponent } = useContext(FileContext);
 
-  const [res, setVal] = useState(<div class="loading">Loading...</div>);
+  const [res, setVal] = useState(<div class="loading">Loading Metadata Form and Populating Data...</div>);
 
   useEffect(() => {
     const populateForm = async () => {
-      let formData = {};
       if (repo && file) {
         let formData;
         try {
@@ -45,6 +44,7 @@ function MetadataEditor() {
                 schema={sbSchema}
                 formData={formData}
                 uiSchema={uiSchema}
+                liveValidate={true}
                 onChange={log('changed')}
                 onSubmit={log('submitted')}
                 onError={log('errors')} />
@@ -56,10 +56,25 @@ function MetadataEditor() {
     populateForm();
   }, [config, repo, file]);
 
-  // (!auth && authComponent) ||
-  return (!repo && repoComponent) ||
-    (!file && <div><div>Select a metadata file</div>{fileComponent}</div>) ||
-    res;
+  // if (!auth)
+  //   return authComponent;
+  // else
+  if (!repo)
+    return (
+      <div>
+        <div>Select repo with scripture burrito metadata</div>
+        {repoComponent}
+      </div>
+    );
+  else if (!file)
+    return (
+      <div>
+        <div>Select a metadata file</div>
+        {fileComponent}
+      </div>
+    );
+  else
+    return res;
 };
 
 const log = (type) => console.log.bind(console, type);

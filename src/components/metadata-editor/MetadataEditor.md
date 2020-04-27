@@ -25,7 +25,8 @@ const [file, setFile] = React.useState();
     }}
 >
   <RepositoryContextProvider
-    full_name='richmahn/scripture-burrito-examples'
+    defaultQuery='scripture-burrito-examples'
+    defaultOwner='richmahn'
     repository={repository}
     onRepository={setRepository}
   >
