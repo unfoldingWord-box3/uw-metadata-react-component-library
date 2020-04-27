@@ -12,10 +12,6 @@ const sections = [
     content: 'README.md',
   },
   {
-    name: 'Hello DCS',
-    components: 'src/components/metadata/HelloDcs.js',
-  },
-  {
     name: 'Metadata Editor',
     components: 'src/components/metadata-editor/MetadataEditor.js',
   },
@@ -45,6 +41,9 @@ module.exports = {
   // webpackConfig: require( 'react-scripts/config/webpack.config' ),
   webpackConfig: {
     devtool: 'source-map',
+    node: {
+       fs: "empty"
+    },
     module: {
       rules: [
         {

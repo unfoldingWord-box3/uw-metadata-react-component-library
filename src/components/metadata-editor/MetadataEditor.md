@@ -7,27 +7,37 @@ import {
   AuthenticationContext,
   AuthenticationContextProvider,
   RepositoryContext,
-  RepositoryContextProvider
+  RepositoryContextProvider,
+  FileContextProvider,
 } from 'gitea-react-toolkit';
 
 const [authentication, setAuthentication] = React.useState();
 const [repository, setRepository] = React.useState();
+const [filepath, setFilepath] = React.useState();
+const [file, setFile] = React.useState();
 
 <AuthenticationContextProvider
-  authentication={authentication}
-  onAuthentication={setAuthentication}
-  config={ {
-    server: "https://bg.door43.org",
-    tokenid:"PlaygroundTesting",
-  }}
-  >
+    authentication={authentication}
+    onAuthentication={setAuthentication}
+    config={{
+      server: "https://git.door43.org",
+      tokenid:"PlaygroundTesting",
+    }}
+>
   <RepositoryContextProvider
-    full_name='unfoldingword/en_ta'
+    full_name='richmahn/scripture-burrito-examples'
     repository={repository}
     onRepository={setRepository}
-    branch='master'
   >
-    <MetadataEditor />
+    <FileContextProvider
+      filepath={filepath}
+      onFilepath={setFilepath}
+      file={file}
+      onFile={setFile}
+      create={false}
+    >
+      <MetadataEditor />
+    </FileContextProvider>
   </RepositoryContextProvider>
 </AuthenticationContextProvider>
 ```
