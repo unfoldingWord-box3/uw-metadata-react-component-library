@@ -25,6 +25,22 @@ module.exports = {
   },
   styles,
   theme,
+  template: {
+    head: {
+      scripts: [
+        {
+          src: 'assets/js/babelHelpers.min.jssss'
+        }
+      ],
+      links: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.csssss'
+        }
+      ]
+    }
+  },
   getComponentPathLine: (componentPath) => {
     const file = componentPath.split('/').pop();
     const component = file.split('.').shift();

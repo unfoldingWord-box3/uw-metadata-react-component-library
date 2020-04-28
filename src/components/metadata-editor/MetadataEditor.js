@@ -9,8 +9,8 @@ import {
 import Form from 'react-jsonschema-form';
 
 function MetadataEditor() {
-  const { state: auth, component: authComponent, config } = useContext(AuthenticationContext);
-  const { state: repo, component: repoComponent } = useContext(RepositoryContext);
+  const { state: auth, component: authComponent } = useContext(AuthenticationContext);
+  const { state: repo, component: repoComponent, config } = useContext(RepositoryContext);
   const { state: file, component: fileComponent } = useContext(FileContext);
 
   const [res, setVal] = useState(<div class="loading">Loading Metadata Form and Populating Data...</div>);
@@ -18,6 +18,8 @@ function MetadataEditor() {
   useEffect(() => {
     const populateForm = async () => {
       if (repo && file) {
+        console.log("FILE:", file);
+        console.log("CONFIG:", config);
         let formData;
         try {
           formData = await getMetadataFormData({ config, repository: repo, file });
