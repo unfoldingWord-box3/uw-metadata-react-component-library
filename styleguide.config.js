@@ -6,14 +6,12 @@ const {
 } = require('./package.json');
 const { styles, theme } = require('./styleguide.styles');
 
+const pathComponents = 'src/components/';
+
 const sections = [
   {
-    name: 'README',
-    content: 'README.md',
-  },
-  {
     name: 'Metadata Editor',
-    components: 'src/components/metadata-editor/MetadataEditor.js',
+    components: [path.join(pathComponents, 'metadata-editor', 'MetadataEditor.js')]
   },
 ];
 
@@ -29,7 +27,7 @@ module.exports = {
     head: {
       scripts: [
         {
-          src: 'assets/js/babelHelpers.min.jssss'
+          src: 'assets/js/babelHelpers.min.js'
         }
       ],
       links: [
@@ -50,15 +48,13 @@ module.exports = {
   usageMode: 'expand',
   exampleMode: 'expand',
   pagePerSection: true,
-  sections,
   components: 'src/components/**/[A-Z]*.js',
-  moduleAliases: { 'hello-dcs-react-component-library': path.resolve(__dirname, 'src') },
+  moduleAliases: { 'uw-metadata-react-component-library': path.resolve(__dirname, 'src') },
   version,
-  // webpackConfig: require( 'react-scripts/config/webpack.config' ),
   webpackConfig: {
     devtool: 'source-map',
     node: {
-       fs: "empty"
+      fs: "empty"
     },
     module: {
       rules: [

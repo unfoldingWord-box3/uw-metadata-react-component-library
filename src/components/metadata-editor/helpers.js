@@ -16,7 +16,7 @@ let myResolver = {
         console.log("HERE: ", file, $refs, schemaId);
         let schema = null;
         for (let i = 0; i < schemaIndex.schemas.length; i++) {
-            console.log(i, schemaIndex.schemas[i], schemaIndex.schemas[i].$id);
+            // console.log(i, schemaIndex.schemas[i], schemaIndex.schemas[i].$id);
             if (schemaIndex.schemas[i].$id == schemaId) {
                 console.log("FOUND!");
                 schema = schemaIndex.schemas[i];
