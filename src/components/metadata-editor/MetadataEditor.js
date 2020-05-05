@@ -21,6 +21,7 @@ function MetadataEditor() {
     const [res, setVal] = useState(
         <div class="loading">Loading Metadata Form and Populating Data...</div>
     );
+    const [liveValidate, setLiveValidate] = useState(false);
 
     let config = authConfig;
     if (!authConfig && repoConfig)
@@ -51,15 +52,19 @@ function MetadataEditor() {
                 console.log(JSON.stringify(sbSchema, null, 2));
                 console.log(JSON.stringify(formData, null, 2));
                 setVal(
-                    <Form
-                        schema={sbSchema}
-                        formData={formData}
-                        uiSchema={uiSchema}
-                        liveValidate={true}
-                        onChange={log('changed')}
-                        onSubmit={log('submitted')}
-                        onError={log('errors')}
-                    />
+                    <div>
+                        <input type="checkbox" name="live-validate" checked={liveValidate} onChange={setLiveValidate}></input>
+                        <label for="live-validate">Live Validate</label>
+                        <Form
+                            schema={sbSchema}
+                            formData={formData}
+                            uiSchema={uiSchema}
+                            liveValidate={true}
+                            onChange={log('changed')}
+                            onSubmit={log('submitted')}
+                            onError={log('errors')}
+                        />
+                    </div>
                 );
             }
         };
