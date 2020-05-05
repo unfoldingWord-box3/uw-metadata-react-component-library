@@ -51,7 +51,7 @@ function MetadataEditor() {
                 setVal(
                     <div>
                         <div style={{marginBottom: '10px'}}>
-                            <input type="checkbox" name="live-validate" checked={liveValidate} onChange={(event) => { console.log('CLICKED!', event.target.checked);setLiveValidate(event.target.checked) }}></input>
+                            <input type="checkbox" name="live-validate" checked={liveValidate} onChange={() => { setLiveValidate(!liveValidate) }}></input>
                             <label for="live-validate">Live Validate</label>
                         </div>
                         <Form
@@ -68,7 +68,7 @@ function MetadataEditor() {
             }
         };
         populateForm();
-    }, [config, repo, file]);
+    }, [config, repo, file, liveValidate]);
 
     if (authConfig && ! auth)
       return authComponent;
