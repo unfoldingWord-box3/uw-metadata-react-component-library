@@ -21,7 +21,7 @@ function MetadataEditor() {
     const [res, setVal] = useState(
         <div class="loading">Loading Metadata Form and Populating Data...</div>
     );
-    const [liveValidate, setLiveValidate] = useState(false);
+    const [liveValidate, setLiveValidate] = useState(true);
 
     let config = authConfig;
     if (!authConfig && repoConfig)
@@ -46,20 +46,19 @@ function MetadataEditor() {
 
                 const sbSchema = await getScriptureBurritoSchema();
                 const uiSchema = await getScriptureBurritoUISchema();
-
-                console.log("SCHEMA:", sbSchema);
-
-                console.log(JSON.stringify(sbSchema, null, 2));
-                console.log(JSON.stringify(formData, null, 2));
+                
+                console.log("GENERATING FORM WITH LIVEVALIDATE:", liveValidate);
                 setVal(
                     <div>
-                        <input type="checkbox" name="live-validate" checked={liveValidate} onChange={setLiveValidate}></input>
-                        <label for="live-validate">Live Validate</label>
+                        <div style={{marginBottom: '10px'}}>
+                            <input type="checkbox" name="live-validate" checked={liveValidate} onChange={(event) => { console.log('CLICKED!', event.target.checked);setLiveValidate(event.target.checked) }}></input>
+                            <label for="live-validate">Live Validate</label>
+                        </div>
                         <Form
                             schema={sbSchema}
                             formData={formData}
                             uiSchema={uiSchema}
-                            liveValidate={true}
+                            liveValidate={liveValidate}
                             onChange={log('changed')}
                             onSubmit={log('submitted')}
                             onError={log('errors')}
