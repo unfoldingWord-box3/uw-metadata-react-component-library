@@ -23,7 +23,7 @@ const [file, setFile] = React.useState();
     repository={repository}
     onRepository={setRepository}
         config={{
-      server: "https://git.door43.org",
+      server: "https://bg.door43.org",
       tokenid:"PlaygroundTesting",
     }}
   >
@@ -62,7 +62,7 @@ const [file, setFile] = React.useState();
     authentication={authentication}
     onAuthentication={setAuthentication}
     config={{
-      server: "https://git.door43.org",
+      server: "https://bg.door43.org",
       tokenid:"PlaygroundTesting",
     }}
 >

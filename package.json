@@ -1,9 +1,9 @@
 {
-    "name": "uw-metadata-react-component-library",
+    "name": "scripture-burrito-react-jsonschema-form",
     "version": "0.1.0",
     "license": "MIT",
-    "description": "React Component Library for gathering Scripture Burrito Metadata from Gitea repositories",
-    "homepage": "https://hellow-dcs-react-component-library.netlify.com/",
+    "description": "React Component Library (RCL) using react-jsonschema-form with the Scripture Burrito Schema",
+    "homepage": "https://www.github.com/unfoldingword-dev/scripture-burrito-react-jsonschema-form",
     "repository": {
         "type": "git",
         "url": "https://github.com/unfoldingWord-box3/hello-dcs-react-component-library"
